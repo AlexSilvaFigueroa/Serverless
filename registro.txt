@@ -1,0 +1,33 @@
+0- Se crea una carpeta q en este caso se llama serverless y se ubica dentro de la carpeta
+
+1- Se crea un archivo index.js PERO DEBE DE ESTAR EN UNA CARPETA LLAMADA 'api' Y ESTE ES ERROR Q SE COMETE
+
+2- Se instala el now con el comando < npm i now > , este proceso crea la carpeta node_modules
+
+3- Se usa el comando < npm init -y > si no funciona solo usar < mpn init > y dar enter hasta q pida un 'yes'
+esto crea el package.json q es un archivo de configuración para el proyecto, guarda los nombre de las librerias q usa el proyecto
+
+4- Se instala Express < npm i express > o < npm i -S express > yo recomiendo la primera lo importante es q en el package.json aparezca express en las dependencias
+
+5- Se programa la logica en JS
+
+6- Desplegamos la app con el comando < now >aqui si no se esta logueado pedira q se ponga el comando < now login > ya ahi se pone el comando y se hace el login con el respectivo correo 
+y la contraseña al escribirla no aparecera los tipicos ******, asi q atención a poner bn la contraseña
+
+6.1- Si ya esta logueado saldra:'set up and deploy? "\PCuser\carpetaDelProyecto"?  le decimos q si 'Y' esto es para confirmar la carpeta del proyecto q vamos a subir
+
+6.2- Which scope do you want to deploy to? °NameUser , aqui confirma el usuario asi q le damos enter
+
+6.3- Link to existing project? [y/N] , pregunta si existe un proyecto en vercel a q se quiera subir ahi si existe le damos 'Y' y ponemos el nombre exacto del proyecto
+sino le damos 'N' y le ponemos un nombre ej: proyectoVersion1
+
+6.4- In which directory is your code located? ./  , aqui le damos enter
+
+6.5-  Want to override the settings? [y/N], pregunta si quiere anular la configuración, le damos 'N'
+
+SI NO HAY UN UNA CARPETA 'api' NO VA CARGAR EL index.js COMO CODIGO SINO COMO TEXTO PLANO Y ESTO SE DEBE A LA CONFIGURACION
+Q SE DA EN now.json:
+"routes": [
+        {"src": "/api(.*)", "dest": "/api/index.js"}  SI SE FIJAN LE ESTAMOS DANDO UN DESTINO AL INDEX DENTRO DE LA CARPETA API
+
+
