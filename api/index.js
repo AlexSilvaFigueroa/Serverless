@@ -1,17 +1,15 @@
 
 const express = require('express')
 const mongoose = require('mongoose')
+const plates = require('./routes/plates')
+const orders = require('./routes/orders')
 const app = express()
 
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true})
 
-const Users = mongoose.model('User', new mongoose.Schema({ name: String}))
-Users.create({ name: 'Curso JS'})
+const router = express.Router()
 
-
-app.get('*', (req, res) => {
-    Users.find()
-    .then(x => res.send(x))
-})
+app.use('/api/plates', plates)
+app.use('/api/orders', orders)
 
 module.exports = app
